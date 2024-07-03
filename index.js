@@ -1,9 +1,23 @@
 // Code your solution here
-const drivers = ["Bobby", "Sammy", "Sally", "Annette", "Sarah", "bobby"];
+findMatching(drivers);
+function findMatching(drivers, name) {
+  return drivers
+    .filter(function (driver) {
+      return driver.toLowerCase().indexOf(name.toLowerCase()) !== -1;
+    })
+    .sort();
+}
 
-const findMatching = (p, q) =>
-  p.filter((p) => p.toLowerCase() === q.toLowerCase());
+function fuzzyMatch(drivers, name) {
+  return drivers
+    .filter(function (driver) {
+      return driver.toLowerCase().indexOf(name.toLowerCase()) === 0;
+    })
+    .sort();
+}
 
-const fuzzyMatch = (p, q) => p.filter((p) => p.charAt(0) === q.charAt(0));
-
-const matchName = (p, q) => p.filter((p) => p.name === q);
+function matchName(drivers, name) {
+  return drivers.filter(function (driver) {
+    return driver.name.toLowerCase() === name.toLowerCase();
+  });
+}
